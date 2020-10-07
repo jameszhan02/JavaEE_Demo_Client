@@ -1,0 +1,39 @@
+<form [formGroup]="employeeForm" (ngSubmit)="updateSelectedEmployee()">
+    <div layout="row">
+        <mat-form-field>
+            <input matInput placeholder="Title" type="text" maxlength="4" required formControlName="title" autofocus>
+        </mat-form-field>
+    </div>
+    <div layout="row">
+        <mat-form-field>
+            <input matInput placeholder="First Name" type="text" required formControlName="firstname">
+        </mat-form-field>
+    </div>
+    <div layout="row">
+        <mat-form-field>
+            <input matInput placeholder="Last Name" type="text" required formControlName="lastname">
+        </mat-form-field>
+    </div>
+    <div layout="row">
+        <mat-form-field>
+            <input matInput placeholder="Phone #" type="text" required formControlName="phoneno">
+        </mat-form-field>
+    </div>
+    <div layout="row">
+        <mat-form-field>
+            <input matInput placeholder="Email" type="email" required formControlName="email">
+        </mat-form-field>
+    </div>
+    <div class="mat-pad-sm">
+        <span>
+            <button mat-raised-button type="submit">Save</button>
+        </span>
+        <span>
+            <button *ngIf="selectedEmployee.id" mat-raised-button type="button"
+                (click)="deleted.emit(selectedEmployee)">Delete</button>
+        </span>
+        <span>
+            <button mat-raised-button type="button" (click)="cancelled.emit(selectedEmployee)">Cancel</button>
+        </span>
+    </div>
+</form>
