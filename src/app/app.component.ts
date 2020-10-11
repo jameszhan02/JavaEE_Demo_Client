@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-
 @Component({
-  selector: 'app-root', //html tag name
-  templateUrl: './app.component.html', //kinda import
-  styleUrls: ['./app.component.scss'] //this site 'compinent' only
+ selector: 'app-exercises',
+ templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = `Sheng's`;
-}
+export class AppComponent {}

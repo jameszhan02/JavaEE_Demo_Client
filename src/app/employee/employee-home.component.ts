@@ -18,7 +18,7 @@ export class EmployeeHomeComponent implements OnInit {
     } // constructor
     ngOnInit(): void {
         this.msg = `Employee's loaded`;
-        this.employees$ = this.employeeService.load().pipe(
+        this.employees$ = this.employeeService.getAll().pipe(
             catchError(error => {
                 if (error.error instanceof ErrorEvent) {
                     this.msg = `Error: ${error.error.message}`;

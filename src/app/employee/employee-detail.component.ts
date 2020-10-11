@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ValidatePhone } from '../validators/phoneno.validator';
+
 import { Employee } from './employee';
 @Component({
   selector: 'app-employee-detail',
@@ -18,11 +20,11 @@ export class EmployeeDetailComponent implements OnInit {
   email: FormControl;
   originalName: string;
   constructor(private builder: FormBuilder) {
-    this.title = new FormControl();
-    this.firstname = new FormControl();
-    this.lastname = new FormControl();
-    this.phoneno = new FormControl();
-    this.email = new FormControl();
+    this.title = new FormControl('', Validators.compose([Validators.required]));
+    this.firstname = new FormControl('', Validators.compose([Validators.required]));
+    this.lastname = new FormControl('', Validators.compose([Validators.required]));
+    this.phoneno = new FormControl('', Validators.compose([Validators.required, ValidatePhone]));
+    this.email = new FormControl('', Validators.compose([Validators.required, Validators.email]));
   } // constructor
   ngOnInit(): void {
     this.employeeForm = new FormGroup({
