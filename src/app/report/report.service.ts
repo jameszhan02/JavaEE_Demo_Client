@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BASEURL } from '../constants';
-import { Employee } from './employee';
+import { Report } from './report';
 import { GenericHttpService } from '../generic-http.service';
-// @ts-ignore
+
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-export class EmployeeService extends GenericHttpService<Employee>{
-  constructor(public http: HttpClient){
-      super(http, `${BASEURL}/employees`)
+export class ReportService extends GenericHttpService<Report>{
+  constructor(public http: HttpClient) {
+    super(http, `${BASEURL}/reports`)
   }// constructor
-
-
 }

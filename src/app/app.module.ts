@@ -8,8 +8,8 @@ import { EmployeeModule } from './employee/employee.module';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
+import { ExpenseModule } from './expense/expense.module';
+import { ReportModule } from './report/report.module';
 
 @NgModule({
     imports: [
@@ -18,7 +18,9 @@ import { AppComponent } from './app.component';
         BrowserModule,
         EmployeeModule,
         HttpClientModule,
-        MatComponentsModule
+        MatComponentsModule,
+        ExpenseModule,
+        ReportModule
     ],
     bootstrap: [AppComponent],
     declarations: [AppComponent, HomeComponent]

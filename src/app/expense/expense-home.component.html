@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+    <span>Expenses</span>
+</mat-toolbar>
+<mat-card *ngIf="hideEditForm" style="margin-bottom: 10vh;">
+    <mat-card-header layout="row">
+        <mat-card-title style="margin-bottom: 4vh;">
+            <span>{{ msg }}</span>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <div class="centerheader">Expense No.</div>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            <!-- Date Column -->
+            <ng-container matColumnDef="dateincurred">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <div class="center-header">Date</div>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.dateincurred}} </td>
+            </ng-container>
+            <!-- Employee Id Column -->
+            <ng-container matColumnDef="employeeid">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <div class="centerheader">Employee No.</div>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.employeeid}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="select(row)">></tr>
+        </table>
+        <div class="padtop15">
+            <mat-icon (click)="newExpense()" matTooltip="Add New Expense" class="addicon" color="primary">
+                control_point
+            </mat-icon>
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-card *ngIf="!hideEditForm">
+    <mat-card-header layout="row">
+        <mat-card-title><span>{{ msg }}</span></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-expense-detail [selectedExpense]="selectedExpense" [employees]="employees$ | async"
+            (cancelled)="cancel('cancelled')" (saved)="save($event)" (deleted)="delete($event)">
+        </app-expense-detail>
+    </mat-card-content>
+</mat-card>
