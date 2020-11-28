@@ -12,6 +12,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const MaterialComponents = [MatButtonModule,
   MatCardModule,
@@ -24,7 +28,11 @@ const MaterialComponents = [MatButtonModule,
   MatTooltipModule,
   MatTableModule,
   MatSortModule,
-  MatSelectModule
+  MatSelectModule,
+  MatExpansionModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatPaginatorModule
 ];
 @NgModule({
   imports: [MatButtonModule,
@@ -38,7 +46,11 @@ const MaterialComponents = [MatButtonModule,
     MatTooltipModule,
     MatTableModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatPaginatorModule
   ],
   exports: [MatButtonModule,
     MatCardModule,
@@ -51,7 +63,11 @@ const MaterialComponents = [MatButtonModule,
     MatTooltipModule,
     MatTableModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatPaginatorModule
   ]
 })
 export class MatComponentsModule { }

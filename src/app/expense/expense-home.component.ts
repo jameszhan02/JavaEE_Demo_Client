@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
 import { Expense } from './expense';
 import { Employee } from '../employee/employee';
 import { EmployeeService } from '../employee/employee.service';
@@ -12,6 +13,7 @@ import { catchError, share } from 'rxjs/operators';
   templateUrl: 'expense-home.component.html'
 })
 export class ExpenseHomeComponent implements OnInit {
+  size: number;
   employees$: Observable<Employee[]>;
   expenses: Expense[];
   expenses$: Observable<Expense[]>;
@@ -22,6 +24,7 @@ export class ExpenseHomeComponent implements OnInit {
   url: string;
   displayedColumns: string[] = ['id', 'dateincurred', 'employeeid'];
   dataSource: MatTableDataSource<Expense>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(private employeeService: EmployeeService, private expenseService: ExpenseService) {
     this.hideEditForm = true;
@@ -146,8 +149,10 @@ export class ExpenseHomeComponent implements OnInit {
   */
   refreshDS(): void {
     this.expenses$.subscribe(expenses => {
+      this.size = expenses.length;
       this.dataSource = new MatTableDataSource(expenses);
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     });
   } // refresh
 } // ExpenseHomeComponent

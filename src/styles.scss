@@ -68,3 +68,17 @@ mat-form-field {
   margin-left: 5%;
   width: 90%;
 }
+
+
+.custommodal {
+  mat-dialog-container {
+  background-color: white;
+  color: mat-color($my-app-primary);
+  font-weight: bold;
+  }
+ }
+ #deleteNo, #deleteYes {
+  background-color: mat-color($my-app-primary);
+  color: white;
+ }
+ 

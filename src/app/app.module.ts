@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExpenseModule } from './expense/expense.module';
 import { ReportModule } from './report/report.module';
+import { DeleteDialogComponent } from './deletedialog/delete-dialog.component';
 
 @NgModule({
     imports: [
